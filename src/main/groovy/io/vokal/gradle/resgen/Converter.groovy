@@ -74,7 +74,7 @@ class Converter {
             BufferedImage bufferedImage = new BufferedImage(outWidth, outHeight, bufferType);
             Graphics g = bufferedImage.createGraphics();
             g.setBackground(bg);
-            renderer.renderPageToGraphics(0, g, density.multiplier);
+            renderer.renderPageToGraphics(0, g, density.scale);
             g.dispose();
 
             File out = new File(destination, "${pdfResource.getOutputName()}.${format}")

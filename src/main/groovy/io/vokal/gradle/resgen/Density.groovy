@@ -18,23 +18,30 @@ package io.vokal.gradle.resgen
 
 /**
  * Represents the different densities we can scale assets for.
+ * Scale is used for PDFRenderer where "where 1 = 72 DPI"
  */
 enum Density {
 
-    LDPI(0.75f),
-    MDPI(1),
-    HDPI(1.5f),
-    XHDPI(2),
-    XXHDPI(3),
-    XXXHDPI(4);
+    LDPI(0.75f, 1.666f),
+    MDPI(1, 2.222f),
+    HDPI(1.5f, 3.333f),
+    XHDPI(2, 4.444f),
+    XXHDPI(3, 6.666f),
+    XXXHDPI(4, 8.888f);
 
     float multiplier;
+    float scale;
 
-    Density(float multiplier) {
+    Density(float multiplier, float scale) {
         this.multiplier = multiplier
+        this.scale = scale
     }
 
     float getMultiplier() {
         return multiplier
+    }
+
+    float getScale() {
+        return scale
     }
 }
